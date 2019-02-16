@@ -38,6 +38,7 @@ kind: Service
 metadata:
   name: subsonic
 spec:
+  type: NodePort
   ports:
     - port: 4040
   selector:
