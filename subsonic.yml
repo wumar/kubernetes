@@ -55,6 +55,6 @@ spec:
       paths:
       - path: /testpath
         backend:
-          serviceName: subsonic
-          servicePort: 4040
+          serviceName: rstudio
+          servicePort: 8787
 
