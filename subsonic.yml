@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: subsonic
+  labels:
+    app: subsonic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: subsonic
+  template:
+    metadata:
+      labels:
+        app: subsonic
+    spec:
+      containers:
+      - name: subsonic
+        image: mpaganini/alpine-subsonic
+        ports:
+        - containerPort: 4040
+        volumeMounts:
+          - name: music
+            mountPath: /var/music:ro
+          - name: state
+            mountPath: /var/subsonic
+      volumes:
+        - name: music
+          hostPath:
+            path: /media/sjaoraid/music
+        - name: state
+          hostPath:
+            path: /var/subsonic
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: subsonic
+spec:
+  ports:
+  - port: 4040
+  selector:
+    service: rstudio
+  type: NodePort
