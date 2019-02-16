@@ -48,7 +48,7 @@ kind: Ingress
 metadata:
   name: test-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: :8787
 spec:
   rules:
   - http:
