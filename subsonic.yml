@@ -49,12 +49,12 @@ metadata:
   name: test-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /testpath
 spec:
   rules:
   - http:
       paths:
-      - path: /testpath/?(.*)
+      - path: /testpath
         backend:
           serviceName: rstudio
           servicePort: 8787
