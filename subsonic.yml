@@ -40,7 +40,9 @@ metadata:
   name: subsonic
 spec:
   ports:
-  - port: 4040
+  - protocol: TCP
+    targetPort: 4040
+    port: 4040
   selector:
     service: subsonic
   type: NodePort
