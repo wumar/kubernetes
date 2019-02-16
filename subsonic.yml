@@ -42,5 +42,5 @@ spec:
   ports:
   - port: 4040
   selector:
-    service: rstudio
+    service: subsonic
   type: NodePort
