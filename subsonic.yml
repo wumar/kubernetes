@@ -39,7 +39,7 @@ metadata:
   name: subsonic
 spec:
   ports:
-    port: 4040
+    - port: 4040
   selector:
     app: subsonic
 ---
